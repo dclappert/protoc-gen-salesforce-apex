@@ -1,0 +1,25 @@
+{
+  "name": "protoc-gen-salesforce-apex",
+  "version": "1.0.0",
+  "description": "A Protoc plugin that generates Salesforce Apex from Protocol Buffer Definitions.",
+  "repository": "https://github.com/dclappert/protoc-gen-salesforce-apex",
+  "author": "dclappert@gmail.com",
+  "private": true,
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "commit": "cz",
+    "compile": "./scripts/compile-and-run.sh",
+    "format": "go fmt ./cmd/*",
+    "release:dryrun": "semantic-release --branch=main --dry-run --no-ci"
+  },
+  "devDependencies": {
+    "@semantic-release/exec": "^6.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "semantic-release": "^15.14.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+option go_package = "examples/proto/example";
+
+import "google/protobuf/any.proto";
+
+package example;
+
+message AdventureLog {
+  enum TerrainType {
+    UNKNOWN_TERRAIN = 0;
+    MOUNTAIN = 1;
+    FOREST = 2;
+    RIVER = 3;
+  }
+
+  enum TripStatus {
+    PLANNED = 0;
+    ONGOING = 1;
+    COMPLETED = 2;
+    CANCELLED = 3;
+    POSTPONED = 4;
+  }
+
+  // Singular scalar fields
+  string tripName = 1;
+  TerrainType terrain = 2;
+  uint32 durationInHours = 3;
+  bytes routeMap = 4;
+  int64 participantCount = 5;
+  bool isEcoFriendly = 6;
+  float difficultyRating = 7;
+
+  // Repeated fields
+  repeated uint64 waypointIds = 8;
+  repeated int32 elevationChanges = 9;
+  repeated TerrainType observedTerrains = 10;
+  repeated google.protobuf.Any wildlifeSightings = 11;
+  repeated AdventureLog relatedTrips = 12;
+
+  // Maps
+  map<string, CampsiteInfo> campsiteDetails = 13;
+  map<string, string> travelDiary = 14;
+
+  // Nested message fields
+  CampsiteInfo baseCampInfo = 15;
+  google.protobuf.Any specialGearList = 16;
+  AdventureLog sisterTrip = 17;
+
+  message Trail {
+    string name = 1;
+    string length = 2;
+  }
+
+  message TripReview {
+    string reviewer = 1;
+    string comments = 2;
+  }
+}
+
+message CampsiteInfo {
+  string campName = 1;
+  bool hasFirePit = 2;
+}
+
+message TrailMapping {
+  map<bool, bytes> trailConditionFlags = 1;
+}
+
+message ElevationMap {
+  map<int32, int32> elevationByPoint = 1;
+}
+
+message AdventureCollection {
+  repeated ElevationMap elevationProfiles = 1;
+}
+
+message ExplorerNotes {
+  string favoriteSpot = 1;
+  repeated string trailHighlights = 2;
+  oneof campfireStory { string story = 3; }
+  map<string, int64> wildlifeCounts = 4;
+  map<int64, string> landmarkNames = 5;
+}

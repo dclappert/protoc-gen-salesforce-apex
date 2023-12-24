@@ -1,0 +1,22 @@
+{
+    "name": "protoc-gen-salesforce-apex",
+    "build": {"dockerfile": "Dockerfile"},
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "editor.defaultFormatter": "golang.go",
+          "prettier.documentSelectors": ["**/*.go"],
+          "editor.formatOnSave": true,
+          "editor.tabSize": 2
+        },
+        "extensions": [
+          "eamodio.gitlens",
+          "golang.go",
+          "salesforce.salesforcedx-vscode-apex",
+          "zxh404.vscode-proto3"
+        ]
+      }
+    },
+    "postCreateCommand": "sfdx --version && yarn",
+    "postAttachCommand": "yarn"
+  }
