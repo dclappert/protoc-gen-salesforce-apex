@@ -9,6 +9,7 @@ module.exports = {
         publishCmd: "echo ${nextRelease.version} > " + LIBRARY_VERSION_FILENAME,
       },
     ],
+    '@semantic-release/github'
   ],
   branches: ["main"],
   repositoryUrl: ".",
