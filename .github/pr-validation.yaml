@@ -1,0 +1,17 @@
+name: Pull Request Validation
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: golang:1.21.5-bullseye
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a Go command
+      run: go version
