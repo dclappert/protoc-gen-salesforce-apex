@@ -1,12 +1,12 @@
 name: Pull Request Merge
 
 on:
-  merge:
+  push:
     branches:
       - main
 
 jobs:
-  semantic_release_dryrun:
+  semantic_release:
     runs-on: ubuntu-latest
 
     container:
