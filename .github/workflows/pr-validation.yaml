@@ -2,16 +2,25 @@ name: Pull Request Validation
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  semantic_release_dryrun:
     runs-on: ubuntu-latest
 
     container:
-      image: golang:1.21.5-bullseye
+      image: node:18
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run a Go command
-      run: go version
+    - name: Install Yarn Dependencies
+      run: |
+        yarn install
+
+    - name: Run Semantic Release in Dry-run
+      run: |
+        yarn semantic-release --branch=main --dry-run
+
+
+
