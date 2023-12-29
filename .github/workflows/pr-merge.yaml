@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  semantic_release_dryrun:
+  semantic_release:
     runs-on: ubuntu-latest
 
     container:
