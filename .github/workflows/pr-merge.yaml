@@ -14,10 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Install Yarn Dependencies
       run: |
         yarn install
 
-    - name: Run Semantic Release in Dry-run
+    - name: Run Semantic Release
+      env: 
+        GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }} 
       run: |
         yarn semantic-release --branch=main
