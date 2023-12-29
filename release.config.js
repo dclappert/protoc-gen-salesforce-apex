@@ -12,5 +12,5 @@ module.exports = {
     '@semantic-release/github'
   ],
   branches: ["main"],
-  repositoryUrl: ".",
+  repositoryUrl: "https://github.com/dclappert/protoc-gen-salesforce-apex.git",
 };
