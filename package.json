@@ -2,7 +2,10 @@
   "name": "protoc-gen-salesforce-apex",
   "version": "1.0.0",
   "description": "A Protoc plugin that generates Salesforce Apex from Protocol Buffer Definitions.",
-  "repository": "https://github.com/dclappert/protoc-gen-salesforce-apex",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dclappert/protoc-gen-salesforce-apex.git"
+  },
   "author": "dclappert@gmail.com",
   "private": true,
   "license": "BSD-3-Clause",

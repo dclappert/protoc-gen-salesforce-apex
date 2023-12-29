@@ -27,8 +27,10 @@ jobs:
           node-version: "lts/*"
       - name: Install dependencies
         run: yarn install
+      - name: Show remote URL
+        run: git remote -v
       - name: Release
         env: 
-          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         run: |
           yarn semantic-release --branch=main
