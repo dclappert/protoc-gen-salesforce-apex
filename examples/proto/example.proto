@@ -23,29 +23,29 @@ message AdventureLog {
   }
 
   // Singular scalar fields
-  string tripName = 1;
+  string trip_name = 1;
   TerrainType terrain = 2;
-  uint32 durationInHours = 3;
-  bytes routeMap = 4;
-  int64 participantCount = 5;
-  bool isEcoFriendly = 6;
-  float difficultyRating = 7;
+  uint32 duration_in_hours = 3;
+  bytes route_map = 4;
+  int64 participant_count = 5;
+  bool is_eco_friendly = 6;
+  float difficulty_rating = 7;
 
   // Repeated fields
-  repeated uint64 waypointIds = 8;
-  repeated int32 elevationChanges = 9;
-  repeated TerrainType observedTerrains = 10;
-  repeated google.protobuf.Any wildlifeSightings = 11;
-  repeated AdventureLog relatedTrips = 12;
+  repeated uint64 waypoint_ids = 8;
+  repeated int32 elevation_changes = 9;
+  repeated TerrainType observed_terrains = 10;
+  repeated google.protobuf.Any wildlife_sightings = 11;
+  repeated AdventureLog related_trips = 12;
 
   // Maps
-  map<string, CampsiteInfo> campsiteDetails = 13;
-  map<string, string> travelDiary = 14;
+  map<string, CampsiteInfo> campsite_details = 13;
+  map<string, string> travel_diary = 14;
 
   // Nested message fields
-  CampsiteInfo baseCampInfo = 15;
-  google.protobuf.Any specialGearList = 16;
-  AdventureLog sisterTrip = 17;
+  CampsiteInfo base_camp_info = 15;
+  google.protobuf.Any special_gear_list = 16;
+  AdventureLog sister_trip = 17;
 
   message Trail {
     string name = 1;
@@ -59,26 +59,26 @@ message AdventureLog {
 }
 
 message CampsiteInfo {
-  string campName = 1;
-  bool hasFirePit = 2;
+  string camp_name = 1;
+  bool has_fire_pit = 2;
 }
 
 message TrailMapping {
-  map<bool, bytes> trailConditionFlags = 1;
+  map<bool, bytes> trail_condition_flags = 1;
 }
 
 message ElevationMap {
-  map<int32, int32> elevationByPoint = 1;
+  map<int32, int32> elevation_by_point = 1;
 }
 
 message AdventureCollection {
-  repeated ElevationMap elevationProfiles = 1;
+  repeated ElevationMap elevation_profiles = 1;
 }
 
 message ExplorerNotes {
-  string favoriteSpot = 1;
-  repeated string trailHighlights = 2;
-  oneof campfireStory { string story = 3; }
-  map<string, int64> wildlifeCounts = 4;
-  map<int64, string> landmarkNames = 5;
+  string favorite_spot = 1;
+  repeated string trail_highlights = 2;
+  oneof campfire_story { string story = 3; }
+  map<string, int64> wildlife_counts = 4;
+  map<int64, string> landmark_names = 5;
 }
