@@ -7,8 +7,13 @@
           "editor.defaultFormatter": "golang.go",
           "prettier.documentSelectors": ["**/*.go"],
           "editor.formatOnSave": true,
-          "editor.tabSize": 2
-        },
+          "editor.tabSize": 2,
+          "protoc": {
+            "options": [
+              "--proto_path=./examples/proto"
+            ]
+          }
+        },      
         "extensions": [
           "eamodio.gitlens",
           "golang.go",

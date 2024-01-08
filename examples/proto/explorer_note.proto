@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "examples/target/classes";
+
+package example;
+
+message ExplorerNote {
+  string favorite_spot = 1;
+  repeated string trail_highlights = 2;
+  oneof campfire_story { string story = 3; }
+  map<string, int64> wildlife_counts = 4;
+  map<int64, string> landmark_names = 5;
+}
