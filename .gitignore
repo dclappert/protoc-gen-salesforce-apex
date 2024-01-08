@@ -25,7 +25,7 @@ node_modules
 
 # Example Generated Salesforce Apex
 examples/target
+test/output
 
 # sfdx project directory
 .sfdx
-

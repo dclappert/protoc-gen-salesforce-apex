@@ -17,6 +17,9 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Release
-        run: |
-          go version
+      - name: Install Protoc
+        run: apt update && apt install -y protobuf-compiler
+      - name: Install protoc-gen-salesforce-apex
+        run: go install -buildvcs=false ./cmd/...
+      - name: Run Tests
+        run: go test ./test
