@@ -1,5 +1,5 @@
 #!/bin/bash
-go install github.com/dclappert/protoc-gen-salesforce-apex/cmd/protoc-gen-salesforce-apex \
+go install ./cmd/... \
   && rm -rf ./examples/target/classes \
   && mkdir -p ./examples/target/classes \
   && protoc \
