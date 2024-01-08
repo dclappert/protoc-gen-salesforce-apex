@@ -20,7 +20,7 @@ jobs:
       - name: Install Protoc
         run: apt update && apt install -y protobuf-compiler
       - name: Install protoc-gen-salesforce-apex
-        run: go install ./cmd/...
+        run: go install -buildvcs=false ./cmd/...
       - name: Run Tests
         run: go test ./test
   release:
