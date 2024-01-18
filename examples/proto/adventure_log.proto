@@ -30,7 +30,7 @@ message AdventureLog {
   bytes route_map = 4;
   int64 participant_count = 5;
   bool is_eco_friendly = 6;
-  float difficulty_rating = 7;
+  optional float difficulty_rating = 7;
 
   // Repeated fields
   repeated uint64 waypoint_ids = 8;

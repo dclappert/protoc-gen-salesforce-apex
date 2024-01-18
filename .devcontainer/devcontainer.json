@@ -22,6 +22,5 @@
         ]
       }
     },
-    "postCreateCommand": "sfdx --version && yarn",
     "postAttachCommand": "yarn"
   }

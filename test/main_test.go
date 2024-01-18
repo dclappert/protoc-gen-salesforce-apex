@@ -5,8 +5,9 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"reflect"
 	"testing"
+
+	"github.com/kylelemons/godebug/diff"
 )
 
 const (
@@ -92,7 +93,16 @@ func assertFilesAreEqual(expectedApexFilePath string, generatedApexFilePath stri
 		t.Fatalf("Reading generated Apex file failed: %v", err)
 	}
 
-	if !reflect.DeepEqual(expectedApex, generatedApex) {
-		t.Errorf("Generated Apex does not match expected Apex")
+	d := diff.Diff(string(expectedApex), string(generatedApex))
+	if d != "" {
+		diffMessage := fmt.Sprintf(`
+Generate Apex does match expected output.
+
+Generate Apex Output Dir: %s
+Expected Apex Output Dir: %s
+
+Diff:
+%s`, generatedApexFilePath, expectedApexFilePath, d)
+		t.Error(diffMessage)
 	}
 }
