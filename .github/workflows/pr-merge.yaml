@@ -11,18 +11,14 @@ jobs:
   test:
     name: Run Tests
     runs-on: ubuntu-latest
-    container: golang:1.21.5-bullseye
+    container: ghcr.io/dclappert/protoc-gen-salesforce-apex-runner-container:1.0.0
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Install Protoc
-        run: apt update && apt install -y protobuf-compiler
-      - name: Install protoc-gen-salesforce-apex
-        run: go install -buildvcs=false ./cmd/...
       - name: Run Tests
-        run: go test ./test
+        run: yarn test
   release:
     name: Release
     runs-on: ubuntu-latest
@@ -42,8 +38,6 @@ jobs:
           node-version: "lts/*"
       - name: Install dependencies
         run: yarn install
-      - name: Show remote URL
-        run: git remote -v
       - name: Release
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

@@ -12,12 +12,12 @@
   "scripts": {
     "commit": "cz",
     "compile": "./scripts/compile-and-run.sh",
-    "format": "go fmt ./cmd/*",
+    "format": "go fmt ./**/*.go",
     "release:local": "semantic-release --branch=main --no-ci",
-    "release:dryrun": "semantic-release --branch=main --dry-run --no-ci"
+    "release:dryrun": "semantic-release --branch=main --dry-run --no-ci",
+    "test": "go install -buildvcs=false ./cmd/... && go test ./test"
   },
   "devDependencies": {
-    "@semantic-release/exec": "^6.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^15.14.0"
   },

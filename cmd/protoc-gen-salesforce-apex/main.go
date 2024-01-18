@@ -50,6 +50,7 @@ func generateApex(req *pluginpb.CodeGeneratorRequest) *pluginpb.CodeGeneratorRes
 }
 
 func emitCodeGeneratorResponse(resp *pluginpb.CodeGeneratorResponse) {
+	setSupportedFeatures(resp)
 	buf, err := proto.Marshal(resp)
 	if err != nil {
 		panic(err)
@@ -58,4 +59,8 @@ func emitCodeGeneratorResponse(resp *pluginpb.CodeGeneratorResponse) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func setSupportedFeatures(resp *pluginpb.CodeGeneratorResponse) {
+	resp.SupportedFeatures = proto.Uint64(uint64(pluginpb.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL))
 }
